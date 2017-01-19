@@ -8,7 +8,9 @@ export default class CurrentWord extends React.Component {
 
   render() {
     return (
-      <div></div>
+      <div>
+      	{this.props.currentWord}
+      </div>
     );
   }
 }

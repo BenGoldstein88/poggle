@@ -8,12 +8,30 @@ export default class TileDisplay extends React.Component {
     this.state={
       tiles: []
     }
+
+    this.populateTiles = this.populateTiles.bind(this);
+    this.resetTiles = this.resetTiles.bind(this);
   }
 
   componentWillMount() {
-    var board = this.props.board;
-    // var tiles = new Array(this.props.board.length).fill(new Array(this.props.board.length))
+    if(this.props.reset === true) {
+      console.log("Resetting!")
+      this.resetTiles();
+      this.props.toggleReset();
+      return null;
+    }
+
+    var tiles = this.populateTiles();
+
+    this.setState({
+      tiles: tiles
+    })
+  }
+
+  populateTiles() {
+
     var tiles = new Array();
+    var board = this.props.board;
 
     console.log("tiles: ", tiles);
 
@@ -29,6 +47,12 @@ export default class TileDisplay extends React.Component {
       tiles.push(tileRow);
     }
     console.log("tiles: ", tiles);
+
+    return tiles;    
+  }
+
+  resetTiles() {
+    var tiles = this.populateTiles();
 
     this.setState({
       tiles: tiles

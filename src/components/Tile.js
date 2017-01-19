@@ -20,6 +20,7 @@ export default class Tile extends React.Component {
 
     this.onClick = this.onClick.bind(this);
     this.toggleClicked = this.toggleClicked.bind(this);
+    this.resetTile = this.resetTile.bind(this);
   }
 
   onClick(e) {
@@ -35,6 +36,21 @@ export default class Tile extends React.Component {
       this.toggleClicked();
     }
 
+  }
+
+  resetTile() {
+    this.setState({
+      clicked: false,
+      style: {
+        height: '20%',
+        width: '18%',
+        border: '1px solid blue',
+        display: 'inline-block',
+        align: 'center',
+        textAlign: 'center',
+        backgroundColor: 'pink'
+      }
+    })
   }
 
   toggleClicked() {
