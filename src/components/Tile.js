@@ -7,40 +7,6 @@ export default class Tile extends React.Component {
 
     this.state = {
     	clicked: false,
-      colorMap: {
-        0: '#ffe6e6',
-        1: '#ffcccc', 
-        2: '#ff9999',
-        3: '#ff8080',
-        4: '#ff6666',
-        5: '#ff4d4d', 
-        6: '#ff3333', 
-        7: '#ff1a1a',
-        8: '#ff0000',
-        9: '#e60000',
-        10: '#cc0000',
-        11: '#b30000',
-        12: '#990000',
-        13: '#800000',
-        14: '#660000'
-      },
-      fontColorMap: {
-        0: '#4d3d00',
-        1: '#665200', 
-        2: '#806600',
-        3: '#b38f00',
-        4: '#cca300',
-        5: '#e6b800', 
-        6: '#ffcc00', 
-        7: '#ffd11a',
-        8: '#ffd633',
-        9: '#ffdb4d',
-        10: '#ffe066',
-        11: '#ffe680',
-        12: '#ffeb99',
-        13: '#fff0b3',
-        14: '#fff5cc'        
-      },
       style: {
         width: '15%',
         height: '100%',
@@ -85,8 +51,8 @@ export default class Tile extends React.Component {
     if(!this.props.clicked && this.state.clicked) {
       var clickedStyle = this.state.clickedStyle;
       var clone = clickedStyle;
-      var backgroundColor = this.state.colorMap[Math.min(this.props.clickNumber, 14)];
-      var fontColor = this.state.fontColorMap[Math.min(this.props.clickNumber, 14)];
+      var backgroundColor = this.props.colorMap[Math.min(this.props.clickNumber, 14)];
+      var fontColor = this.props.fontColorMap[Math.min(this.props.clickNumber, 14)];
       clone.backgroundColor = backgroundColor;
       clone.color = fontColor;
       this.setState({
@@ -99,8 +65,8 @@ export default class Tile extends React.Component {
     if(!!this.props.clicked && !this.state.clicked) {
       var clickedStyle = this.state.clickedStyle;
       var clone = clickedStyle;
-      var backgroundColor = this.state.colorMap[Math.min(this.props.clickNumber, 14)];
-      var fontColor = this.state.fontColorMap[Math.min(this.props.clickNumber, 14)];
+      var backgroundColor = this.props.colorMap[Math.min(this.props.clickNumber, 14)];
+      var fontColor = this.props.fontColorMap[Math.min(this.props.clickNumber, 14)];
       clone.backgroundColor = backgroundColor;
       clone.color = fontColor;
       this.setState({
@@ -132,14 +98,17 @@ export default class Tile extends React.Component {
 
   render() {
     var style;
+    var className = 'pt-card pt-interactive';
     if(!!this.props.clicked) {
       style = this.state.clickedStyle;
+      className += ' pt-elevation-4'
     } else {
       style = this.state.style;
+      className += ' pt-elevation-0 '
     }
 
     return (
-      <div onClick={this.onClick} style={style}>
+      <div onClick={this.onClick} className={className} style={style}>
         <div style={{
           margin: '0',
           position: 'absolute',
@@ -148,7 +117,7 @@ export default class Tile extends React.Component {
           marginRight: '-50%',
           transform: 'translate(-50%, -50%)'
         }}>
-          {this.props.letter}
+          {this.props.letter.toUpperCase()}
         </div>
       </div>
     );

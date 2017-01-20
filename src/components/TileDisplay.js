@@ -9,8 +9,10 @@ export default class TileDisplay extends React.Component {
     this.state={
       tiles: [],
       style: {
-        height: '80%',
-        width: '100%'
+        height: '75%',
+        width: '75%',
+        margin: '0 auto',
+        position: 'relative'
       },
       tileRows: []
     }
@@ -69,7 +71,7 @@ export default class TileDisplay extends React.Component {
       var clickNumber = this.props.visitedTiles.length
     }
 
-    var cloneTile = <Tile clicked={newClicked} clickNumber={clickNumber} key={tile.props.row + '' + tile.props.column} toggleClicked={this.toggleClicked} row={tile.props.row} column={tile.props.column} isLegalUndo={this.props.isLegalUndo} isLegalMove={this.props.isLegalMove} letter={tile.props.letter} />
+    var cloneTile = <Tile colorMap={this.props.colorMap} fontColorMap={this.props.fontColorMap} clicked={newClicked} clickNumber={clickNumber} key={tile.props.row + '' + tile.props.column} toggleClicked={this.toggleClicked} row={tile.props.row} column={tile.props.column} isLegalUndo={this.props.isLegalUndo} isLegalMove={this.props.isLegalMove} letter={tile.props.letter} />
 
     var tiles = this.state.tiles;
     tiles[tile.props.row][tile.props.column] = cloneTile;
@@ -94,7 +96,7 @@ export default class TileDisplay extends React.Component {
       var tileRow = [];
       for(var j = 0; j < board.length; j++) {
         var currentLetter = currentRow[j];
-        var tile = <Tile key={i+''+j+''} row={i} column={j} clicked={false} clickNumber={0} toggleClicked={this.toggleClicked} toggleReset={this.props.toggleReset} reset={this.props.reset} isLegalUndo={this.props.isLegalUndo} isLegalMove={this.props.isLegalMove} letter={currentLetter} />
+        var tile = <Tile key={i+''+j+''} row={i} column={j} colorMap={this.props.colorMap} fontColorMap={this.props.fontColorMap} clicked={false} clickNumber={0} toggleClicked={this.toggleClicked} toggleReset={this.props.toggleReset} reset={this.props.reset} isLegalUndo={this.props.isLegalUndo} isLegalMove={this.props.isLegalMove} letter={currentLetter} />
         // tiles[i][j] = tile;
         tileRow.push(tile);
       }

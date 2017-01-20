@@ -33,14 +33,19 @@ export default class Scoreboard extends React.Component {
   	var submittedWords = this.props.submittedWords;
     var totalScore = this.calculateTotalScore();
     var tableRows = [];
-    tableRows.push(<tr key={-1}><th>Word</th><th>Points</th></tr>);
     for(var i in submittedWords) {
       var tableRow = <tr key={i}><td>{submittedWords[i]}</td><td>{Math.min(submittedWords[i].length-2, 6)}</td></tr>
       tableRows.push(tableRow)
     }
+
+    var tableClass = 'pt-table pt-condensed pt-interactive '
     return (
       <div style={this.state.style}>
-        <table>
+        <table className={tableClass}>
+          <thead>
+            <th>WORD</th>
+            <th>SCORE</th>
+          </thead>
           <tbody>
             {tableRows}
           </tbody>

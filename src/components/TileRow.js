@@ -9,7 +9,9 @@ export default class TileRow extends React.Component {
     this.state = {
     	style: {
     		height: '19%',
-    		width: '100%',
+    		width: '75%',
+        margin: '0 auto',
+        position: 'relative',
         minWidth: '400px',
         maxWidth: '800px',
         minHeight: '70px',

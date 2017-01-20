@@ -11,8 +11,8 @@ export default class WordDisplay extends React.Component {
   render() {
     return (
       <div>
-      	<CurrentWord currentWord={this.props.currentWord}/>
-      	<SubmitWordButton submitWord={this.props.submitWord} />
+      	<CurrentWord numVisitedTiles={this.props.numVisitedTiles} colorMap={this.props.colorMap} fontColorMap={this.props.fontColorMap} currentWord={this.props.currentWord}/>
+      	<SubmitWordButton numVisitedTiles={this.props.numVisitedTiles} colorMap={this.props.colorMap} fontColorMap={this.props.fontColorMap} submitWord={this.props.submitWord} />
       </div>
     );
   }
