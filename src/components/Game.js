@@ -12,7 +12,12 @@ export default class Game extends React.Component {
       currentWord: '',
       visitedTiles: [],
       reset: false,
-      submit: false
+      submit: false,
+      style: {
+        height: '100%',
+        width: '59%',
+        display: 'inline-block'
+      }
     }
 
     this.isLegalMove = this.isLegalMove.bind(this);
@@ -59,9 +64,12 @@ export default class Game extends React.Component {
       })
       return true;      
     }
-    if(tile === visitedTiles[visitedTiles.length-1]) {
+    // var lastTile = visitedTiles[visitedTiles.length-1];
+    // debugger;
+    if(tile.props.row === visitedTiles[visitedTiles.length-1].props.row && tile.props.column === visitedTiles[visitedTiles.length-1].props.column) {
+      console.log("checkcomplete")
       visitedTiles.pop();
-      this.removeLetterFromCurrentWord(tile.props.letter);
+      this.removeLetterFromCurrentWord();
       this.setState({
         visitedTiles: visitedTiles
       })
@@ -95,7 +103,7 @@ export default class Game extends React.Component {
 
   }
 
-  removeLetterFromCurrentWord(letter) {
+  removeLetterFromCurrentWord() {
     var currentWord = this.state.currentWord;
 
     currentWord = currentWord.substring(0, currentWord.length-1);
@@ -111,8 +119,13 @@ export default class Game extends React.Component {
     var submittedWords = this.props.submittedWords;
     var currentWord = this.state.currentWord;
 
-    if(submittedWords.includes(currentWord) || currentWord.length < 3) {
-      console.log("word too short or already submitted!")
+    if(submittedWords.includes(currentWord)) {
+      console.log("Word already submitted!!")
+      return false;
+    }
+
+    if(currentWord.length < 3) {
+      console.log("Word too short! Must be at least 3 letters.");
       return false;
     }
 
@@ -147,7 +160,7 @@ export default class Game extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={this.state.style} >
       	<TileDisplay toggleReset={this.toggleReset} reset={this.state.reset} isLegalUndo={this.isLegalUndo} isLegalMove={this.isLegalMove} currentWord={this.state.currentWord} visitedTiles={this.state.visitedTiles} board={this.props.board} />
       	<WordDisplay submitWord={this.handleSubmitWord} currentWord={this.state.currentWord} />
       </div>

@@ -8,13 +8,16 @@ export default class Home extends React.Component {
     super(props);
 
     this.state = {
-
+      style: {
+        height: '100%',
+        width: '100%'
+      }
     }
 
   }
   render() {
     return (
-      <div>
+      <div style={this.state.style}>
         <TopLogo />
         <Gameboard />
       </div>

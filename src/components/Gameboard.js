@@ -11,7 +11,12 @@ export default class Gameboard extends React.Component {
     	letterArray: ['aaafrs', 'aaeeee', 'aafirs', 'adennn', 'aeeeem', 'aeegmu', 'aegmnn', 'afirsy', 'bjkqxz', 'ccenst', 'ceiilt', 'ceilpt', 'ceipst', 'ddhnot', 'dhhlor', 'dhlnor', 'dhlnor', 'eiiitt', 'emottt', 'ensssu', 'fiprsy', 'gorrvw', 'iprrry', 'nootuw', 'ooottu'],
     	board: [],
     	submittedWords: [],
-    	boardSize: 5
+    	boardSize: 5,
+      style: {
+        height: '90%',
+        width: '100%',
+        position: 'relative'
+      }
     }
 
     this.populateBoard = this.populateBoard.bind(this);
@@ -85,7 +90,7 @@ export default class Gameboard extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={this.state.style}>
       	<Game submittedWords={this.state.submittedWords} addWordToSubmittedWords={this.addWordToSubmittedWords} board={this.state.board} />
       	<Scoreboard submittedWords={this.state.submittedWords} />
       </div>
