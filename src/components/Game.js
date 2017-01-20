@@ -11,8 +11,8 @@ export default class Game extends React.Component {
     this.state = {
       currentWord: '',
       visitedTiles: [],
-      submittedWords: [],
-      reset: false
+      reset: false,
+      submit: false
     }
 
     this.isLegalMove = this.isLegalMove.bind(this);
@@ -108,7 +108,7 @@ export default class Game extends React.Component {
   }
 
   handleSubmitWord() {
-    var submittedWords = this.state.submittedWords;
+    var submittedWords = this.props.submittedWords;
     var currentWord = this.state.currentWord;
 
     if(submittedWords.includes(currentWord) || currentWord.length < 3) {
@@ -116,12 +116,15 @@ export default class Game extends React.Component {
       return false;
     }
 
-    submittedWords.push(currentWord);
+    // submittedWords.push(currentWord);
+    this.props.addWordToSubmittedWords(currentWord);
+    
     this.setState({
-      submittedWords: submittedWords
+      visitedTiles: [],
+      currentWord: '',
+      reset: true
     })
-    this.resetBoard();
-    this.toggleReset();
+    // this.resetBoard();
 
   }
 
@@ -129,7 +132,8 @@ export default class Game extends React.Component {
     console.log("Resetting the board!");
     this.setState({
       visitedTiles: [],
-      currentWord: ''
+      currentWord: '',
+      reset: !this.state.reset
     })
   }
 

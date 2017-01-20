@@ -7,8 +7,11 @@ export default class Scoreboard extends React.Component {
   }
 
   render() {
+  	var submittedWords = this.props.submittedWords;
     return (
-      <div></div>
+      <div>
+      	{submittedWords}
+      </div>
     );
   }
 }

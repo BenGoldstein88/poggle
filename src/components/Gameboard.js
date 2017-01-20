@@ -18,6 +18,7 @@ export default class Gameboard extends React.Component {
     this.resetBoard = this.resetBoard.bind(this);
     this.clearScoreboard = this.clearScoreboard.bind(this);
     this.pickRandomIndex = this.pickRandomIndex.bind(this);
+    this.addWordToSubmittedWords = this.addWordToSubmittedWords.bind(this);
   }
 
   componentWillMount() {
@@ -61,6 +62,18 @@ export default class Gameboard extends React.Component {
   	return Math.floor(Math.random()*length);
   }
 
+  addWordToSubmittedWords(currentWord) {
+    var submittedWords = this.state.submittedWords;
+
+    submittedWords.push(currentWord);
+
+    this.setState({
+      submittedWords: submittedWords
+    })
+  }
+
+
+
   resetBoard() {
   	this.clearScoreboard();
   	this.populateBoard();
@@ -73,7 +86,7 @@ export default class Gameboard extends React.Component {
   render() {
     return (
       <div>
-      	<Game board={this.state.board} />
+      	<Game submittedWords={this.state.submittedWords} addWordToSubmittedWords={this.addWordToSubmittedWords} board={this.state.board} />
       	<Scoreboard submittedWords={this.state.submittedWords} />
       </div>
     );
