@@ -9,13 +9,14 @@ export default class TileRow extends React.Component {
     this.state = {
     	style: {
     		height: '19%',
-    		width: '75%',
+    		width: '90%',
         margin: '0 auto',
         position: 'relative',
         minWidth: '400px',
         maxWidth: '800px',
         minHeight: '70px',
-        maxHeight: '150px'
+        maxHeight: '150px',
+        display: 'block'
     	}
     }
   }
@@ -24,7 +25,7 @@ export default class TileRow extends React.Component {
   	var tiles = this.props.tiles;
     return (
       <div style={this.state.style} >
-      	{tiles}
+         {tiles}
       </div>
     );
   }

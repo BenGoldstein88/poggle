@@ -8,30 +8,31 @@ export default class Tile extends React.Component {
     this.state = {
     	clicked: false,
       style: {
-        width: '15%',
-        height: '100%',
+        width: '19%',
+        height: '95%',
         minHeight: '70px',
         minWidth: '70px',
-        maxHeight: '150px',
-        maxWidth: '150px',
-        border: '1px solid blue',
+        maxHeight: '300px',
+        maxWidth: '300px',
+        // border: '1px solid blue',
         borderRadius: '5px',
         display: 'inline-block',
         position: 'relative',
         align: 'center',
         textAlign: 'center',
         fontSize: '2em',
-        backgroundColor: 'grey',
-        color: 'black'
+        backgroundColor: 'lightgrey',
+        color: 'black',
+        margin: '.5%'
       },
       clickedStyle: {
-        width: '15%',
-        height: '100%',
+        width: '19%',
+        height: '95%',
         minHeight: '70px',
         minWidth: '70px',
-        maxHeight: '150px',
-        maxWidth: '150px',
-        border: '1px solid blue',
+        maxHeight: '300px',
+        maxWidth: '300px',
+        // border: '1px solid blue',
         borderRadius: '15px',
         display: 'inline-block',
         position: 'relative',
@@ -39,7 +40,8 @@ export default class Tile extends React.Component {
         textAlign: 'center',
         fontSize: '2em',
         backgroundColor: 'red',
-        color: 'yellow'      
+        color: 'yellow',
+        margin: '.5%'    
       }
     }
 

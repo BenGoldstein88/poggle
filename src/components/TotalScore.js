@@ -8,8 +8,25 @@ export default class TotalScore extends React.Component {
 
   render() {
     return (
-      <div>
-      	TOTAL SCORE: {this.props.totalScore}
+      <div style={{
+        position: 'absolute',
+        bottom: '0',
+        width: '100%'
+      }}>
+        <p style={{
+          display: 'inline-block',
+          fontSize: '1.5em',
+          position: 'relative',
+          width: '50%',
+          textAlign: 'center'
+        }}>TOTAL SCORE</p>
+        <p style={{
+          display: 'inline-block',
+          fontSize: '1.5em',
+          position: 'relative',
+          width: '50%',
+          textAlign: 'center'
+        }}>{this.props.totalScore}</p>
       </div>
     );
   }

@@ -9,19 +9,28 @@ export default class TopLogo extends React.Component {
     this.state = {
     	style: {
     		height: '10%',
-    		width: '95%'
+    		width: '95%',
+        marginBottom: '2%'
     	}
     }
+
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick(e) {
+    e.preventDefault();
   }
 
   render() {
     return (
       <div style={this.state.style}>
-      	<img style={{
+      	<img onClick={this.onClick} style={{
           width: '50%',
-          height: '20%',
+          height: 'auto',
           margin: 'auto',
-          display: 'block'
+          display: 'block',
+          maxHeight: '100px',
+          maxWidth: '225px'
         }} src={TopLogoImage} />
 
       </div>

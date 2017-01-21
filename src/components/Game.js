@@ -1,7 +1,7 @@
 import React from 'react';
 import TileDisplay from './TileDisplay';
 import WordDisplay from './WordDisplay';
-import { Button, Position, Toaster } from "@blueprintjs/core";
+import { Button, Position, Toaster, Intent } from "@blueprintjs/core";
 
 
 export default class Game extends React.Component {
@@ -19,8 +19,10 @@ export default class Game extends React.Component {
       submit: false,
       style: {
         height: '100%',
-        width: '59%',
-        display: 'inline-block'
+        width: '69%',
+        display: 'inline-block',
+        margin: '0 auto',
+        position: 'relative'
       },
       colorMap: {
         0: '#ffe6e6',
@@ -68,6 +70,13 @@ export default class Game extends React.Component {
     this.toggleReset = this.toggleReset.bind(this);
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if(!!this.props.resetGame) {
+      this.resetBoard();
+      this.props.toggleResetGame();
+    }
+  }
+
   isLegalMove(tile) {
     if(this.state.visitedTiles.length < 1) {
       this.markTileAsVisited(tile);
@@ -105,7 +114,6 @@ export default class Game extends React.Component {
     // var lastTile = visitedTiles[visitedTiles.length-1];
     // debugger;
     if(tile.props.row === visitedTiles[visitedTiles.length-1].props.row && tile.props.column === visitedTiles[visitedTiles.length-1].props.column) {
-      console.log("checkcomplete")
       visitedTiles.pop();
       this.removeLetterFromCurrentWord();
       this.setState({
@@ -113,7 +121,6 @@ export default class Game extends React.Component {
       })
       return true;
     }
-      console.log("visitedTiles: ", visitedTiles);
     return false;
   }
 
@@ -158,9 +165,10 @@ export default class Game extends React.Component {
     var currentWord = this.state.currentWord;
 
     if(submittedWords.includes(currentWord)) {
-      var message = "You have already submitted the word " + currentWord + "!";
+      var message = "You have already submitted the word " + currentWord.toUpperCase() + "!";
       this.state.toaster.show({
         message: message,
+        intent: Intent.WARNING,
         canEscapeKeyClear: true
       })
       return false;
@@ -170,6 +178,7 @@ export default class Game extends React.Component {
       var message = "Too short! Word must be at least 3 letters.";
       this.state.toaster.show({
         message: message,
+        intent: Intent.DANGER,
         canEscapeKeyClear: true
       })
       return false;
@@ -208,6 +217,7 @@ export default class Game extends React.Component {
 
     this.state.toaster.show({
       message: message,
+      intent: Intent.SUCCESS,
       canEscapeKeyClear: true
     })
     this.setState({
@@ -220,7 +230,6 @@ export default class Game extends React.Component {
   }
 
   resetBoard() {
-    console.log("Resetting the board!");
     this.setState({
       visitedTiles: [],
       currentWord: '',

@@ -1,5 +1,6 @@
 import React from 'react';
 import TotalScore from './TotalScore';
+import ResetButton from './ResetButton';
 export default class Scoreboard extends React.Component {
 
   constructor(props) {
@@ -8,9 +9,9 @@ export default class Scoreboard extends React.Component {
     this.state = {
       style: {
         height: '100%',
-        width: '39%',
+        width: '29%',
         display: 'inline-block',
-        border: '1px solid green',
+        // border: '1px solid green',
         position: 'absolute',
         top: '0px'
       }
@@ -34,17 +35,23 @@ export default class Scoreboard extends React.Component {
     var totalScore = this.calculateTotalScore();
     var tableRows = [];
     for(var i in submittedWords) {
-      var tableRow = <tr key={i}><td>{submittedWords[i]}</td><td>{Math.min(submittedWords[i].length-2, 6)}</td></tr>
+      var tableRow = <tr key={i}><td style={{textAlign: 'center', width: '50%'}}>{submittedWords[i].toUpperCase()}</td><td style={{textAlign: 'center', width: '50%'}}>{Math.min(submittedWords[i].length-2, 6)}</td></tr>
       tableRows.push(tableRow)
     }
 
     var tableClass = 'pt-table pt-condensed pt-interactive '
     return (
       <div style={this.state.style}>
-        <table className={tableClass}>
-          <thead>
-            <th>WORD</th>
-            <th>SCORE</th>
+        <ResetButton resetGame={this.props.resetGame}/>
+        <table style={{
+          width: '100%',
+          textAlign: 'center'
+        }} className={tableClass}>
+          <thead style={{width: '100%', textAlign: 'center'}}>
+            <tr>
+              <th style={{textAlign: 'center'}}>WORD</th>
+              <th style={{textAlign: 'center'}}>SCORE</th>
+            </tr>
           </thead>
           <tbody>
             {tableRows}

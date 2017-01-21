@@ -12,8 +12,7 @@ export default class CurrentWord extends React.Component {
         minHeight: '150px',
         margin: '0 auto',
         position: 'relative',
-        textAlign: 'center',
-        alight: 'center'
+        textAlign: 'center'
       }
     }
   }
@@ -25,10 +24,10 @@ export default class CurrentWord extends React.Component {
       <div style={this.state.style} className={className} >
         <p style={{
           fontSize: '1.5em',
-          marginTop: '5%'
+          marginTop: '2%'
         }}> CURRENT WORD </p>
       	<p style={{
-          marginTop: '5%',
+          marginTop: '2%',
           fontSize: '3em',
           color: color
         }}>{this.props.currentWord.toUpperCase()}</p>

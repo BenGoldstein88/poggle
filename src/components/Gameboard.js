@@ -13,17 +13,21 @@ export default class Gameboard extends React.Component {
     	submittedWords: [],
     	boardSize: 5,
       style: {
-        height: '90%',
+        height: '88%',
         width: '100%',
-        position: 'relative'
-      }
+        position: 'relative',
+        margin: '0 auto'
+      },
+      resetGame: false
     }
 
     this.populateBoard = this.populateBoard.bind(this);
-    this.resetBoard = this.resetBoard.bind(this);
+    this.handleResetGame = this.handleResetGame.bind(this);
     this.clearScoreboard = this.clearScoreboard.bind(this);
     this.pickRandomIndex = this.pickRandomIndex.bind(this);
     this.addWordToSubmittedWords = this.addWordToSubmittedWords.bind(this);
+    this.toggleResetGame = this.toggleResetGame.bind(this);
+    this.handleResetGame = this.handleResetGame.bind(this);
   }
 
   componentWillMount() {
@@ -35,16 +39,27 @@ export default class Gameboard extends React.Component {
 
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if(prevProps.board !== this.props.board) {
+      var board = this.populateBoard();
+      this.setState({
+        board: board
+      })
+    }
+  }
+
   populateBoard() {
-  	var letterArray = this.state.letterArray;
+  	var letterArray = ['aaafrs', 'aaeeee', 'aafirs', 'adennn', 'aeeeem', 'aeegmu', 'aegmnn', 'afirsy', 'bjkqxz', 'ccenst', 'ceiilt', 'ceilpt', 'ceipst', 'ddhnot', 'dhhlor', 'dhlnor', 'dhlnor', 'eiiitt', 'emottt', 'ensssu', 'fiprsy', 'gorrvw', 'iprrry', 'nootuw', 'ooottu'];
+
   	var boardSize = this.state.boardSize;
   	var board = new Array();
 
     console.log("startBoard: ", board);
     // debugger;
+    console.log("this: ", this);
 
   	for(var i = 0; i < boardSize; i++) {
-      var currentRow = board[i] || []
+      var currentRow = board[i] || [];
   		for(var j = 0; j < boardSize; j++) {
 		  	var indexOfCurrentDie = this.pickRandomIndex(letterArray.length);
 		  	var currentDie = letterArray[indexOfCurrentDie];
@@ -79,20 +94,36 @@ export default class Gameboard extends React.Component {
 
 
 
-  resetBoard() {
-  	this.clearScoreboard();
-  	this.populateBoard();
+  handleResetGame() {
+  	// this.clearScoreboard();
+  	var board = this.populateBoard();
+    this.setState({
+      board: [],
+      submittedWords: [],
+      resetGame: true,
+      board: board
+    })
   }
 
+  toggleResetGame() {
+    this.setState({
+      resetGame: !this.state.resetGame
+    })
+  }
+
+
   clearScoreboard() {
+    this.setState({
+      submittedWords: []
+    })
 
   }
 
   render() {
     return (
       <div style={this.state.style}>
-      	<Game submittedWords={this.state.submittedWords} addWordToSubmittedWords={this.addWordToSubmittedWords} board={this.state.board} />
-      	<Scoreboard submittedWords={this.state.submittedWords} />
+      	<Game resetGame={this.state.resetGame} toggleResetGame={this.toggleResetGame} submittedWords={this.state.submittedWords} addWordToSubmittedWords={this.addWordToSubmittedWords} board={this.state.board} />
+      	<Scoreboard resetGame={this.handleResetGame} submittedWords={this.state.submittedWords} />
       </div>
     );
   }

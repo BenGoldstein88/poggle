@@ -10,27 +10,22 @@ export default class TileDisplay extends React.Component {
       tiles: [],
       style: {
         height: '75%',
-        width: '75%',
+        width: '95%',
         margin: '0 auto',
-        position: 'relative'
+        position: 'relative',
+        align: 'center'
+        // backgroundColor: 'lightblue'
       },
       tileRows: []
     }
 
     this.populateTiles = this.populateTiles.bind(this);
-    // this.resetTile = this.resetTile.bind(this);
     this.resetTiles = this.resetTiles.bind(this);
     this.toggleClicked = this.toggleClicked.bind(this);
     this.setTileRows = this.setTileRows.bind(this);
   }
 
   componentWillMount() {
-    // if(this.props.reset === true) {
-    //   console.log("Resetting!");
-    //   this.resetTiles();
-    //   this.props.toggleReset();
-    //   return null;
-    // }
 
     var tiles = this.populateTiles();
     var tileRows = this.setTileRows(tiles);
@@ -58,17 +53,12 @@ export default class TileDisplay extends React.Component {
     }
   }
 
-  // resetTile(tile) {
-
-  //   var cloneTile = <Tile clicked={false} clickNumber={tile.props.clickNumber} key={tile.props.row + '' + tile.props.column + ''} row={tile.props.row} toggleClicked={this.toggleClicked} column={tile.props.column} isLegalUndo={this.props.isLegalUndo} isLegalMove={this.props.isLegalMove} letter={tile.props.letter} />
-  //   return cloneTile;
-  // }
 
   toggleClicked(tile) {
     var newClicked = !tile.props.clicked;
     var clickNumber = 0;
     if(!!newClicked) {
-      var clickNumber = this.props.visitedTiles.length
+      var clickNumber = this.props.visitedTiles.length;
     }
 
     var cloneTile = <Tile colorMap={this.props.colorMap} fontColorMap={this.props.fontColorMap} clicked={newClicked} clickNumber={clickNumber} key={tile.props.row + '' + tile.props.column} toggleClicked={this.toggleClicked} row={tile.props.row} column={tile.props.column} isLegalUndo={this.props.isLegalUndo} isLegalMove={this.props.isLegalMove} letter={tile.props.letter} />
@@ -96,8 +86,10 @@ export default class TileDisplay extends React.Component {
       var tileRow = [];
       for(var j = 0; j < board.length; j++) {
         var currentLetter = currentRow[j];
+        if(currentLetter === 'q') {
+          currentLetter = 'qu'
+        }
         var tile = <Tile key={i+''+j+''} row={i} column={j} colorMap={this.props.colorMap} fontColorMap={this.props.fontColorMap} clicked={false} clickNumber={0} toggleClicked={this.toggleClicked} toggleReset={this.props.toggleReset} reset={this.props.reset} isLegalUndo={this.props.isLegalUndo} isLegalMove={this.props.isLegalMove} letter={currentLetter} />
-        // tiles[i][j] = tile;
         tileRow.push(tile);
       }
       tiles.push(tileRow);
@@ -107,7 +99,6 @@ export default class TileDisplay extends React.Component {
 
   resetTiles() {
     console.log("resetting!")
-    console.log("this: ", this);
     var tiles = this.populateTiles();
     var tileRows = this.setTileRows(tiles);
 
@@ -119,13 +110,6 @@ export default class TileDisplay extends React.Component {
 
 
   render() {
-    // var tiles = this.state.tiles;
-    // var tileRows = []
-    // for(var i in tiles) {
-    //   var tileRow = tiles[i];
-    //   var tileRow = <div style ={{width: '100%'}} key={i} > {tileRow} </div>;
-    //   tileRows.push(tileRow);
-    // }
 
     var tileRows = this.state.tileRows;
 
@@ -133,7 +117,9 @@ export default class TileDisplay extends React.Component {
 
     return (
       <div style={this.state.style}>
+        <div style={{margin: '0 auto'}}>
           {tileRows}
+        </div>
       </div>
 
     );
