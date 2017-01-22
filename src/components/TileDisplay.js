@@ -1,6 +1,7 @@
 import React from 'react';
 import Tile from './Tile';
 import TileRow from './TileRow';
+import ShuffleBoardButton from './ShuffleBoardButton';
 export default class TileDisplay extends React.Component {
 
   constructor(props) {
@@ -23,11 +24,12 @@ export default class TileDisplay extends React.Component {
     this.resetTiles = this.resetTiles.bind(this);
     this.toggleClicked = this.toggleClicked.bind(this);
     this.setTileRows = this.setTileRows.bind(this);
+    this.shuffleTiles = this.shuffleTiles.bind(this);
   }
 
   componentWillMount() {
 
-    var tiles = this.populateTiles();
+    var tiles = this.populateTiles(this.props.board);
     var tileRows = this.setTileRows(tiles);
 
     this.setState({
@@ -46,11 +48,25 @@ export default class TileDisplay extends React.Component {
 
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if(this.props.board !== prevProps.board) {
+      var tiles = this.populateTiles(this.props.board);
+      var tileRows = this.setTileRows(tiles);
+
+      this.setState({
+        tiles: tiles,
+        tileRows: tileRows
+      })      
+    }
+    
+  }
+
   componentWillUpdate(nextProps, nextState) {
     if(!!nextProps.reset) {
       this.resetTiles();
       this.props.toggleReset();      
     }
+
   }
 
 
@@ -76,10 +92,9 @@ export default class TileDisplay extends React.Component {
   }
 
 
-  populateTiles() {
+  populateTiles(board) {
 
     var tiles = new Array();
-    var board = this.props.board;
 
     for(var i = 0; i < board.length; i++) {
       var currentRow = board[i];
@@ -99,13 +114,19 @@ export default class TileDisplay extends React.Component {
 
   resetTiles() {
     console.log("resetting!")
-    var tiles = this.populateTiles();
+    var tiles = this.populateTiles(this.props.board);
     var tileRows = this.setTileRows(tiles);
 
     this.setState({
       tiles: tiles,
       tileRows: tileRows
     })
+  }
+
+// shuffle does not work with alternate board sizes yet
+  shuffleTiles() {
+    console.log("shuffling!");
+    this.props.shuffleBoard();
   }
 
 
@@ -117,6 +138,7 @@ export default class TileDisplay extends React.Component {
 
     return (
       <div style={this.state.style}>
+        <ShuffleBoardButton resetCurrentWord={this.props.resetCurrentWord} onClick={this.shuffleTiles} />
         <div style={{margin: '0 auto'}}>
           {tileRows}
         </div>

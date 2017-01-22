@@ -1,6 +1,7 @@
 import React from 'react';
 import TotalScore from './TotalScore';
 import ResetButton from './ResetButton';
+import Typist from 'react-typist';
 export default class Scoreboard extends React.Component {
 
   constructor(props) {
@@ -13,7 +14,8 @@ export default class Scoreboard extends React.Component {
         display: 'inline-block',
         // border: '1px solid green',
         position: 'absolute',
-        top: '0px'
+        top: '0px',
+        minWidth: '200px'
       }
     }
   }
@@ -35,13 +37,19 @@ export default class Scoreboard extends React.Component {
     var totalScore = this.calculateTotalScore();
     var tableRows = [];
     for(var i in submittedWords) {
-      var tableRow = <tr key={i}><td style={{textAlign: 'center', width: '50%'}}>{submittedWords[i].toUpperCase()}</td><td style={{textAlign: 'center', width: '50%'}}>{Math.min(submittedWords[i].length-2, 6)}</td></tr>
+      var tableRow = <tr key={i}><td style={{textAlign: 'center', width: '50%'}}><Typist cursor={{hideWhenDone: true, element: ''}}>{submittedWords[i].toUpperCase()}</Typist></td><td style={{textAlign: 'center', width: '50%'}}>{Math.min(submittedWords[i].length-2, 6)}</td></tr>
       tableRows.push(tableRow)
     }
 
     var tableClass = 'pt-table pt-condensed pt-interactive '
+
+    var color = 'black';
+    if(this.props.submittedWords.length > 0) {
+      color = this.props.colorMap[Math.min(this.props.submittedWords[this.props.submittedWords.length-1].length, 14)];
+    }
     return (
       <div style={this.state.style}>
+        <TotalScore color={color} totalScore={totalScore} />
         <ResetButton resetGame={this.props.resetGame}/>
         <table style={{
           width: '100%',
@@ -57,7 +65,6 @@ export default class Scoreboard extends React.Component {
             {tableRows}
           </tbody>
         </table>
-        <TotalScore totalScore={totalScore} />
       </div>
     );
   }

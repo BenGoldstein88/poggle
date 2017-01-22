@@ -23,40 +23,6 @@ export default class Game extends React.Component {
         display: 'inline-block',
         margin: '0 auto',
         position: 'relative'
-      },
-      colorMap: {
-        0: '#ffe6e6',
-        1: '#ffcccc', 
-        2: '#ff9999',
-        3: '#ff8080',
-        4: '#ff6666',
-        5: '#ff4d4d', 
-        6: '#ff3333', 
-        7: '#ff1a1a',
-        8: '#ff0000',
-        9: '#e60000',
-        10: '#cc0000',
-        11: '#b30000',
-        12: '#990000',
-        13: '#800000',
-        14: '#660000'
-      },
-      fontColorMap: {
-        0: '#4d3d00',
-        1: '#665200', 
-        2: '#806600',
-        3: '#b38f00',
-        4: '#cca300',
-        5: '#e6b800', 
-        6: '#ffcc00', 
-        7: '#ffd11a',
-        8: '#ffd633',
-        9: '#ffdb4d',
-        10: '#ffe066',
-        11: '#ffe680',
-        12: '#ffeb99',
-        13: '#fff0b3',
-        14: '#fff5cc'        
       }
     }
 
@@ -68,6 +34,7 @@ export default class Game extends React.Component {
     this.resetBoard = this.resetBoard.bind(this);
     this.handleSubmitWord = this.handleSubmitWord.bind(this);
     this.toggleReset = this.toggleReset.bind(this);
+    this.resetCurrentWord = this.resetCurrentWord.bind(this);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -121,6 +88,13 @@ export default class Game extends React.Component {
       })
       return true;
     }
+
+    this.state.toaster.show({
+      message: 'Illegal Undo! Only the last letter can be removed.',
+      intent: Intent.DANGER,
+      canEscapeKeyClear: true,
+      timeout: 1500
+    })
     return false;
   }
 
@@ -169,7 +143,8 @@ export default class Game extends React.Component {
       this.state.toaster.show({
         message: message,
         intent: Intent.WARNING,
-        canEscapeKeyClear: true
+        canEscapeKeyClear: true,
+        timeout: 1500
       })
       return false;
     }
@@ -179,7 +154,8 @@ export default class Game extends React.Component {
       this.state.toaster.show({
         message: message,
         intent: Intent.DANGER,
-        canEscapeKeyClear: true
+        canEscapeKeyClear: true,
+        timeout: 1500
       })
       return false;
     }
@@ -218,7 +194,8 @@ export default class Game extends React.Component {
     this.state.toaster.show({
       message: message,
       intent: Intent.SUCCESS,
-      canEscapeKeyClear: true
+      canEscapeKeyClear: true,
+      timeout: 1500
     })
     this.setState({
       visitedTiles: [],
@@ -243,13 +220,20 @@ export default class Game extends React.Component {
     })
   }
 
+  resetCurrentWord() {
+    this.setState({
+      currentWord: '',
+      visitedTiles: []
+    })
+  }
+
 
 
   render() {
     return (
       <div style={this.state.style} >
-      	<TileDisplay colorMap={this.state.colorMap} fontColorMap={this.state.fontColorMap} toggleReset={this.toggleReset} reset={this.state.reset} isLegalUndo={this.isLegalUndo} isLegalMove={this.isLegalMove} currentWord={this.state.currentWord} visitedTiles={this.state.visitedTiles} board={this.props.board} />
-      	<WordDisplay numVisitedTiles={this.state.visitedTiles.length} colorMap={this.state.colorMap} fontColorMap={this.state.fontColorMap} submitWord={this.handleSubmitWord} currentWord={this.state.currentWord} />
+      	<TileDisplay shuffleBoard={this.props.shuffleBoard} resetCurrentWord={this.resetCurrentWord} colorMap={this.props.colorMap} fontColorMap={this.props.fontColorMap} toggleReset={this.toggleReset} reset={this.state.reset} isLegalUndo={this.isLegalUndo} isLegalMove={this.isLegalMove} currentWord={this.state.currentWord} visitedTiles={this.state.visitedTiles} board={this.props.board} />
+      	<WordDisplay numVisitedTiles={this.state.visitedTiles.length} colorMap={this.props.colorMap} fontColorMap={this.props.fontColorMap} submitWord={this.handleSubmitWord} currentWord={this.state.currentWord} />
       </div>
     );
   }

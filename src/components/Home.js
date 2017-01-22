@@ -10,7 +10,8 @@ export default class Home extends React.Component {
     this.state = {
       style: {
         height: '100%',
-        width: '100%'
+        width: '100%',
+        minWidth: '600px'
       }
     }
 

@@ -11,11 +11,19 @@ export default class SubmitWordButton extends React.Component {
         margin: '0 auto',
         position: 'relative',
         textAlign: 'center',
-        backgroundColor: 'lightgrey'
+        fontSize: '1.5em',
+        backgroundColor: 'lightgrey',
+        WebkitTouchCallout: 'none',
+        WebkitUserSelect: 'none',
+        khtmlUserSelect: 'none',
+        MozUserSelect: 'none',
+        msUserSelect: 'none',
+        userSelect: 'none'  
       } 
     }
 
     this.onClick = this.onClick.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
   onClick(e) {
@@ -23,6 +31,10 @@ export default class SubmitWordButton extends React.Component {
 
   	this.props.submitWord();
 
+  }
+
+  handleKeyPress(e) {
+    console.log("e: ", e);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -44,8 +56,9 @@ export default class SubmitWordButton extends React.Component {
 
     var className = "pt-card pt-elevation-4 pt-interactive "
     return (
-      <div style={this.state.style} className={className} onClick={this.onClick}>
+      <div onKeyPress={this.handleKeyPress} style={this.state.style} className={className} onClick={this.onClick}>
         SUBMIT WORD
+        <input type={'hidden'} onKeyPress={this.handleKeyPress} autoFocus={true}/>
       </div>
     );
   }

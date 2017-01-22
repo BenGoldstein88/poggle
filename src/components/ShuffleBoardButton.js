@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class ResetButton extends React.Component {
+export default class ShuffleBoardButton extends React.Component {
 
   constructor(props) {
     super(props);
@@ -10,8 +10,8 @@ export default class ResetButton extends React.Component {
 
   onClick(e) {
     e.preventDefault();
-
-    this.props.resetGame();
+    this.props.resetCurrentWord();
+    this.props.onClick();
   }
 
   render() {
@@ -19,9 +19,9 @@ export default class ResetButton extends React.Component {
       <div onClick={this.onClick} style={{
         position: 'relative',
         height: '50px',
-        backgroundColor: 'red',
+        backgroundColor: 'gold',
         color: 'white',
-        width: '90%',
+        width: '40%',
         borderRadius: '5px',
         textAlign: 'center',
         margin: '0 auto'
@@ -40,7 +40,7 @@ export default class ResetButton extends React.Component {
           msUserSelect: 'none',
           userSelect: 'none'  
         }} >
-        	RESET GAME
+        	SHUFFLE BOARD
         </div>
       </div>
 

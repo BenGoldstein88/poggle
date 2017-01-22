@@ -1,0 +1,32 @@
+/*.current-word {
+	-webkit-transition: font-size 1s, opacity 1s;
+	transition: font-size 1s, opacity 1s;
+	margin-top: 2%;
+	font-size: 2em;
+}
+
+.current-word-transition {
+	font-size: 4em;
+	opacity: 0;
+	
+}*/
+
+.total-score {
+	display: inline-block;
+	font-size: 1.5em;
+	position: relative;
+	width: 35%;
+	text-align: center;
+	-webkit-transition: font-size 1s, color 1s;
+	transition: font-size 1s, color 1s;
+}
+.total-score-transition {
+	display: inline-block;
+	font-size: 3em;
+	position: relative;
+	width: 35%;
+	text-align: center;
+}
+
+table { table-layout:fixed; }
+td { overflow:hidden;white-space:nowrap;  } 
