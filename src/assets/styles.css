@@ -43,6 +43,49 @@ body {
 
 }
 
+.shuffle-board-button {
+	font-size: 1em;
+	transition: font-size .3s;
+	-webkit-transition: font-size .3s;
+}
+
+.shuffle-board-button:hover {
+	font-size: 1.5em;
+	transition: font-size .3s;
+	-webkit-transition: font-size .3s;
+
+}
+
+.reset-game-button {
+	font-size: 1em;
+	transition: font-size .3s;
+	-webkit-transition: font-size .3s;
+}
+
+.reset-game-button:hover {
+	font-size: 1.5em;
+	transition: font-size .3s;
+	-webkit-transition: font-size .3s;
+}
+
+.submit-word-button {
+	height: 49%;
+	width: 75%;
+	margin: 0 auto;
+	position: relative;
+	text-align: center;
+	font-size: 1.5em;
+	margin-top: -80px;
+	transition: font-size .3s;
+	-webkit-transition: font-size .3s;
+}
+
+.submit-word-button:hover {
+	font-size: 2em;
+	transition: font-size .3s;
+	-webkit-transition: font-size .3s;
+}
+
 .tile-clicked {
 
 }
@@ -67,6 +110,10 @@ body {
 	position: relative;
 	width: 35%;
 	text-align: center;
+}
+
+.total-score:hover {
+	font-size: 6em;
 }
 
 table { table-layout:fixed; }

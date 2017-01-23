@@ -28,7 +28,7 @@ export default class ShuffleBoardButton extends React.Component {
         marginRight: '50px',
         // margin: '0 auto',
         display: 'inline-block'
-      }} className={'pt-interactive pt-card'}>
+      }} className={'pt-interactive pt-card shuffle-board-button'}>
         <div style={{
         	margin: '0',
         	position: 'absolute',

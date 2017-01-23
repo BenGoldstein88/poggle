@@ -6,14 +6,8 @@ export default class SubmitWordButton extends React.Component {
     super(props);
     this.state = {
       style: {
-        height: '49%',
-        width: '75%',
-        margin: '0 auto',
-        position: 'relative',
-        textAlign: 'center',
-        fontSize: '1.5em',
-        marginTop: '-80px',
-        backgroundColor: 'lightgrey'
+        backgroundColor: 'lightgrey',
+        color: 'black'
         // WebkitTouchCallout: 'none',
         // WebkitUserSelect: 'none',
         // khtmlUserSelect: 'none',
@@ -55,7 +49,7 @@ export default class SubmitWordButton extends React.Component {
 
   render() {
 
-    var className = "pt-card pt-elevation-4 pt-interactive "
+    var className = "pt-card pt-elevation-4 pt-interactive submit-word-button"
     return (
       <div onKeyPress={this.handleKeyPress} style={this.state.style} className={className} onClick={this.onClick}>
         SUBMIT WORD

@@ -27,7 +27,7 @@ export default class ResetButton extends React.Component {
         right: '5%',
         // margin: '0 auto',
         display: 'inline-block'
-      }} className={'pt-interactive pt-card'}>
+      }} className={'pt-interactive pt-card reset-game-button'}>
         <div style={{
         	margin: '0',
         	position: 'absolute',
