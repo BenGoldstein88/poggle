@@ -17,14 +17,16 @@ export default class ShuffleBoardButton extends React.Component {
   render() {
     return (
       <div onClick={this.onClick} style={{
-        position: 'relative',
+        position: 'absolute',
         height: '50px',
-        backgroundColor: 'gold',
+        background: 'linear-gradient(to right, #ff8080, #b30000)',
         color: 'white',
         width: '40%',
-        borderRadius: '5px',
+        borderRadius: '15px',
         textAlign: 'center',
-        margin: '0 auto',
+        left: '5%',
+        marginRight: '50px',
+        // margin: '0 auto',
         display: 'inline-block'
       }} className={'pt-interactive pt-card'}>
         <div style={{

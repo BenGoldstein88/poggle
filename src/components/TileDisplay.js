@@ -10,11 +10,16 @@ export default class TileDisplay extends React.Component {
     this.state={
       tiles: [],
       style: {
-        height: '75%',
+        height: '70%',
         width: '95%',
         margin: '0 auto',
         position: 'relative',
-        align: 'center'
+        align: 'center',
+        padding: '15px',
+        minWidth: '450px',
+        backgroundColor: 'lightblue',
+        borderRadius: '10%',
+        opacity: '1'
         // backgroundColor: 'lightblue'
       },
       tileRows: []
@@ -137,7 +142,7 @@ export default class TileDisplay extends React.Component {
 
 
     return (
-      <div style={this.state.style}>
+      <div className={'pt-card pt-elevation-1'} style={this.state.style}>
 
         <div style={{margin: '0 auto'}}>
           {tileRows}

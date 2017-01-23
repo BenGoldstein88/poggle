@@ -9,7 +9,11 @@ export default class ButtonDisplay extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={{
+        height: '40px',
+        marginBottom: '25px',
+        position: 'relative'
+      }}>
         <ShuffleBoardButton resetCurrentWord={this.props.resetCurrentWord} onClick={this.props.shuffleBoard} />
       	<ResetButton resetGame={this.props.resetGame}/>
       </div>

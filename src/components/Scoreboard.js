@@ -15,7 +15,8 @@ export default class Scoreboard extends React.Component {
         // border: '1px solid green',
         position: 'absolute',
         top: '0px',
-        minWidth: '200px'
+        minWidth: '200px',
+        padding: '2%'
       }
     }
   }
@@ -56,8 +57,8 @@ export default class Scoreboard extends React.Component {
         }} className={tableClass}>
           <thead style={{width: '100%', textAlign: 'center'}}>
             <tr>
-              <th style={{textAlign: 'center'}}>WORD</th>
-              <th style={{textAlign: 'center'}}>SCORE</th>
+              <th style={{textAlign: 'center', width: '50%'}}>WORD</th>
+              <th style={{textAlign: 'center', width: '50%'}}>SCORE</th>
             </tr>
           </thead>
           <tbody>

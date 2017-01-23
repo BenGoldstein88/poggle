@@ -65,6 +65,14 @@ export default class Game extends React.Component {
       return true;
     }
 
+    var message = "Consecutive letters must be adjacent!";
+      this.state.toaster.show({
+        message: message,
+        intent: Intent.WARNING,
+        canEscapeKeyClear: true,
+        timeout: 1500
+      })
+
     return false;
   }
 
@@ -92,7 +100,7 @@ export default class Game extends React.Component {
 
     this.state.toaster.show({
       message: 'Illegal Undo! Only the last letter can be removed.',
-      intent: Intent.DANGER,
+      intent: Intent.WARNING,
       canEscapeKeyClear: true,
       timeout: 1500
     })
@@ -143,7 +151,7 @@ export default class Game extends React.Component {
       var message = "You have already submitted the word " + currentWord.toUpperCase() + "!";
       this.state.toaster.show({
         message: message,
-        intent: Intent.WARNING,
+        intent: Intent.DANGER,
         canEscapeKeyClear: true,
         timeout: 1500
       })

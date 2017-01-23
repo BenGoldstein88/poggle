@@ -6,19 +6,20 @@ export default class SubmitWordButton extends React.Component {
     super(props);
     this.state = {
       style: {
-        height: '80%',
+        height: '49%',
         width: '75%',
         margin: '0 auto',
         position: 'relative',
         textAlign: 'center',
         fontSize: '1.5em',
-        backgroundColor: 'lightgrey',
-        WebkitTouchCallout: 'none',
-        WebkitUserSelect: 'none',
-        khtmlUserSelect: 'none',
-        MozUserSelect: 'none',
-        msUserSelect: 'none',
-        userSelect: 'none'  
+        marginTop: '-80px',
+        backgroundColor: 'lightgrey'
+        // WebkitTouchCallout: 'none',
+        // WebkitUserSelect: 'none',
+        // khtmlUserSelect: 'none',
+        // MozUserSelect: 'none',
+        // msUserSelect: 'none',
+        // userSelect: 'none'  
       } 
     }
 
@@ -58,7 +59,6 @@ export default class SubmitWordButton extends React.Component {
     return (
       <div onKeyPress={this.handleKeyPress} style={this.state.style} className={className} onClick={this.onClick}>
         SUBMIT WORD
-        <input type={'hidden'} onKeyPress={this.handleKeyPress} autoFocus={true}/>
       </div>
     );
   }

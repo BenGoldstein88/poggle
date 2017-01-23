@@ -8,40 +8,13 @@ export default class Tile extends React.Component {
     this.state = {
     	clicked: false,
       style: {
-        width: '19%',
-        height: '95%',
-        minHeight: '70px',
-        minWidth: '70px',
-        maxHeight: '300px',
-        maxWidth: '300px',
-        // border: '1px solid blue',
-        borderRadius: '5px',
-        display: 'inline-block',
-        position: 'relative',
-        align: 'center',
-        textAlign: 'center',
-        fontSize: '2em',
-        backgroundColor: 'lightgrey',
-        color: 'black',
-        margin: '.5%'
+        backgroundColor: '#f2f4f7',
+        color: 'black'
       },
       clickedStyle: {
-        width: '19%',
-        height: '95%',
-        minHeight: '70px',
-        minWidth: '70px',
-        maxHeight: '300px',
-        maxWidth: '300px',
-        // border: '1px solid blue',
-        borderRadius: '15px',
-        display: 'inline-block',
-        position: 'relative',
-        align: 'center',
-        textAlign: 'center',
-        fontSize: '2em',
         backgroundColor: 'red',
-        color: 'yellow',
-        margin: '.5%'    
+        color: 'yellow'
+
       }
     }
 
@@ -100,10 +73,10 @@ export default class Tile extends React.Component {
 
   render() {
     var style;
-    var className = 'pt-card pt-interactive';
+    var className = 'pt-card pt-interactive tile';
     if(!!this.props.clicked) {
       style = this.state.clickedStyle;
-      className += ' pt-elevation-4'
+      className += ' pt-elevation-4 '
     } else {
       style = this.state.style;
       className += ' pt-elevation-0 '
@@ -117,13 +90,14 @@ export default class Tile extends React.Component {
           top: '50%',
           left: '50%',
           marginRight: '-50%',
-          transform: 'translate(-50%, -50%)',
-          WebkitTouchCallout: 'none',
-          WebkitUserSelect: 'none',
-          khtmlUserSelect: 'none',
-          MozUserSelect: 'none',
-          msUserSelect: 'none',
-          userSelect: 'none'  
+          // opacity: '1',
+          transform: 'translate(-50%, -50%)'
+          // WebkitTouchCallout: 'none',
+          // WebkitUserSelect: 'none',
+          // khtmlUserSelect: 'none',
+          // MozUserSelect: 'none',
+          // msUserSelect: 'none',
+          // userSelect: 'none'  
         }}>
           {this.props.letter.toUpperCase()}
         </div>

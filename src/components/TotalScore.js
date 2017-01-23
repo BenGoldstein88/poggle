@@ -42,16 +42,11 @@ export default class TotalScore extends React.Component {
         position: 'absolute',
         top: '0',
         width: '100%',
-        marginTop: '-30%'
+        marginTop: '-75px',
+        marginLeft: '-8%',
+        textAlign: 'center'
       }}>
-        <p style={{
-          display: 'inline-block',
-          fontSize: '1.5em',
-          position: 'relative',
-          width: '65%',
-          textAlign: 'center'
-        }}>TOTAL SCORE</p>
-        <p className={className} style={{color: color}}>{this.props.totalScore}</p>
+        <p className={className} style={{color: color, marginLeft: 'auto', marginRight: 'auto'}}>{this.props.totalScore}</p>
       </div>
     );
   }
