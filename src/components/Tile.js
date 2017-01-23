@@ -24,28 +24,28 @@ export default class Tile extends React.Component {
   componentDidUpdate(prevProps, prevState) {
 
     if(!this.props.clicked && this.state.clicked) {
-      var clickedStyle = this.state.clickedStyle;
-      var clone = clickedStyle;
+      // var clickedStyle = this.state.clickedStyle;
+      var style = {};
       var backgroundColor = this.props.colorMap[Math.min(this.props.clickNumber, 14)];
       var fontColor = this.props.fontColorMap[Math.min(this.props.clickNumber, 14)];
-      clone.backgroundColor = backgroundColor;
-      clone.color = fontColor;
+      style.backgroundColor = backgroundColor;
+      style.color = fontColor;
       this.setState({
-        clickedStyle: clone,
+        clickedStyle: style,
         clicked: false
       })
       return null;
     }
 
     if(!!this.props.clicked && !this.state.clicked) {
-      var clickedStyle = this.state.clickedStyle;
-      var clone = clickedStyle;
+      // var clickedStyle = this.state.clickedStyle;
+      var style = {};
       var backgroundColor = this.props.colorMap[Math.min(this.props.clickNumber, 14)];
       var fontColor = this.props.fontColorMap[Math.min(this.props.clickNumber, 14)];
-      clone.backgroundColor = backgroundColor;
-      clone.color = fontColor;
+      style.backgroundColor = backgroundColor;
+      style.color = fontColor;
       this.setState({
-        clickedStyle: clone,
+        clickedStyle: style,
         clicked: true
       })
       return null;

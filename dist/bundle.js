@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "6f526c2d7ef3935669eb"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "90cc38a7d7f8bb2149bb"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -12591,7 +12591,7 @@
 	            right: '5%',
 	            // margin: '0 auto',
 	            display: 'inline-block'
-	          }, className: 'pt-interactive pt-card' },
+	          }, className: 'pt-interactive pt-card reset-game-button' },
 	        _react2.default.createElement(
 	          'div',
 	          { style: {
@@ -12600,13 +12600,7 @@
 	              top: '50%',
 	              left: '50%',
 	              marginRight: '50%',
-	              transform: 'translate(-50%, -50%)',
-	              WebkitTouchCallout: 'none',
-	              WebkitUserSelect: 'none',
-	              khtmlUserSelect: 'none',
-	              MozUserSelect: 'none',
-	              msUserSelect: 'none',
-	              userSelect: 'none'
+	              transform: 'translate(-50%, -50%)'
 	            } },
 	          'RESET GAME'
 	        )
@@ -12679,7 +12673,7 @@
 	            marginRight: '50px',
 	            // margin: '0 auto',
 	            display: 'inline-block'
-	          }, className: 'pt-interactive pt-card' },
+	          }, className: 'pt-interactive pt-card shuffle-board-button' },
 	        _react2.default.createElement(
 	          'div',
 	          { style: {
@@ -12688,13 +12682,13 @@
 	              top: '50%',
 	              left: '50%',
 	              marginRight: '50%',
-	              transform: 'translate(-50%, -50%)',
-	              WebkitTouchCallout: 'none',
-	              WebkitUserSelect: 'none',
-	              khtmlUserSelect: 'none',
-	              MozUserSelect: 'none',
-	              msUserSelect: 'none',
-	              userSelect: 'none'
+	              transform: 'translate(-50%, -50%)'
+	              // WebkitTouchCallout: 'none',
+	              // WebkitUserSelect: 'none',
+	              // khtmlUserSelect: 'none',
+	              // MozUserSelect: 'none',
+	              // msUserSelect: 'none',
+	              // userSelect: 'none'  
 	            } },
 	          'SHUFFLE BOARD'
 	        )
@@ -21708,6 +21702,14 @@
 	        return true;
 	      }
 
+	      var message = "Consecutive letters must be adjacent!";
+	      this.state.toaster.show({
+	        message: message,
+	        intent: _core.Intent.WARNING,
+	        canEscapeKeyClear: true,
+	        timeout: 1500
+	      });
+
 	      return false;
 	    }
 	  }, {
@@ -21736,7 +21738,7 @@
 
 	      this.state.toaster.show({
 	        message: 'Illegal Undo! Only the last letter can be removed.',
-	        intent: _core.Intent.DANGER,
+	        intent: _core.Intent.WARNING,
 	        canEscapeKeyClear: true,
 	        timeout: 1500
 	      });
@@ -21790,7 +21792,7 @@
 	        var message = "You have already submitted the word " + currentWord.toUpperCase() + "!";
 	        this.state.toaster.show({
 	          message: message,
-	          intent: _core.Intent.WARNING,
+	          intent: _core.Intent.DANGER,
 	          canEscapeKeyClear: true,
 	          timeout: 1500
 	        });
@@ -22311,7 +22313,7 @@
 	        position: 'absolute',
 	        top: '0px',
 	        minWidth: '200px',
-	        padding: '5%'
+	        padding: '2%'
 	      }
 	    };
 	    return _this;
@@ -22441,20 +22443,14 @@
 
 	    _this.state = {
 	      style: {
-	        height: '49%',
-	        width: '75%',
-	        margin: '0 auto',
-	        position: 'relative',
-	        textAlign: 'center',
-	        fontSize: '1.5em',
-	        marginTop: '-80px',
 	        backgroundColor: 'lightgrey',
-	        WebkitTouchCallout: 'none',
-	        WebkitUserSelect: 'none',
-	        khtmlUserSelect: 'none',
-	        MozUserSelect: 'none',
-	        msUserSelect: 'none',
-	        userSelect: 'none'
+	        color: 'black'
+	        // WebkitTouchCallout: 'none',
+	        // WebkitUserSelect: 'none',
+	        // khtmlUserSelect: 'none',
+	        // MozUserSelect: 'none',
+	        // msUserSelect: 'none',
+	        // userSelect: 'none'  
 	      }
 	    };
 
@@ -22494,7 +22490,7 @@
 	    key: 'render',
 	    value: function render() {
 
-	      var className = "pt-card pt-elevation-4 pt-interactive ";
+	      var className = "pt-card pt-elevation-4 pt-interactive submit-word-button";
 	      return _react2.default.createElement(
 	        'div',
 	        { onKeyPress: this.handleKeyPress, style: this.state.style, className: className, onClick: this.onClick },
@@ -22543,40 +22539,13 @@
 	    _this.state = {
 	      clicked: false,
 	      style: {
-	        width: '19%',
-	        height: '95%',
-	        minHeight: '70px',
-	        minWidth: '70px',
-	        maxHeight: '300px',
-	        maxWidth: '200px',
-	        // border: '1px solid blue',
-	        borderRadius: '5px',
-	        display: 'inline-block',
-	        position: 'relative',
-	        align: 'center',
-	        textAlign: 'center',
-	        fontSize: '2em',
-	        backgroundColor: '#f2f4f7',
-	        color: 'black',
-	        margin: '.5%'
+	        backgroundColor: 'white',
+	        color: 'black'
 	      },
 	      clickedStyle: {
-	        width: '19%',
-	        height: '95%',
-	        minHeight: '70px',
-	        minWidth: '70px',
-	        maxHeight: '300px',
-	        maxWidth: '300px',
-	        // border: '1px solid blue',
-	        borderRadius: '15px',
-	        display: 'inline-block',
-	        position: 'relative',
-	        align: 'center',
-	        textAlign: 'center',
-	        fontSize: '2em',
 	        backgroundColor: 'red',
-	        color: 'yellow',
-	        margin: '.5%'
+	        color: 'yellow'
+
 	      }
 	    };
 
@@ -22589,28 +22558,28 @@
 	    value: function componentDidUpdate(prevProps, prevState) {
 
 	      if (!this.props.clicked && this.state.clicked) {
-	        var clickedStyle = this.state.clickedStyle;
-	        var clone = clickedStyle;
+	        // var clickedStyle = this.state.clickedStyle;
+	        var style = {};
 	        var backgroundColor = this.props.colorMap[Math.min(this.props.clickNumber, 14)];
 	        var fontColor = this.props.fontColorMap[Math.min(this.props.clickNumber, 14)];
-	        clone.backgroundColor = backgroundColor;
-	        clone.color = fontColor;
+	        style.backgroundColor = backgroundColor;
+	        style.color = fontColor;
 	        this.setState({
-	          clickedStyle: clone,
+	          clickedStyle: style,
 	          clicked: false
 	        });
 	        return null;
 	      }
 
 	      if (!!this.props.clicked && !this.state.clicked) {
-	        var clickedStyle = this.state.clickedStyle;
-	        var clone = clickedStyle;
+	        // var clickedStyle = this.state.clickedStyle;
+	        var style = {};
 	        var backgroundColor = this.props.colorMap[Math.min(this.props.clickNumber, 14)];
 	        var fontColor = this.props.fontColorMap[Math.min(this.props.clickNumber, 14)];
-	        clone.backgroundColor = backgroundColor;
-	        clone.color = fontColor;
+	        style.backgroundColor = backgroundColor;
+	        style.color = fontColor;
 	        this.setState({
-	          clickedStyle: clone,
+	          clickedStyle: style,
 	          clicked: true
 	        });
 	        return null;
@@ -22636,10 +22605,10 @@
 	    key: 'render',
 	    value: function render() {
 	      var style;
-	      var className = 'pt-card pt-interactive';
+	      var className = 'pt-card pt-interactive tile';
 	      if (!!this.props.clicked) {
 	        style = this.state.clickedStyle;
-	        className += ' pt-elevation-4';
+	        className += ' pt-elevation-4 ';
 	      } else {
 	        style = this.state.style;
 	        className += ' pt-elevation-0 ';
@@ -22657,13 +22626,13 @@
 	              left: '50%',
 	              marginRight: '-50%',
 	              // opacity: '1',
-	              transform: 'translate(-50%, -50%)',
-	              WebkitTouchCallout: 'none',
-	              WebkitUserSelect: 'none',
-	              khtmlUserSelect: 'none',
-	              MozUserSelect: 'none',
-	              msUserSelect: 'none',
-	              userSelect: 'none'
+	              transform: 'translate(-50%, -50%)'
+	              // WebkitTouchCallout: 'none',
+	              // WebkitUserSelect: 'none',
+	              // khtmlUserSelect: 'none',
+	              // MozUserSelect: 'none',
+	              // msUserSelect: 'none',
+	              // userSelect: 'none'  
 	            } },
 	          this.props.letter.toUpperCase()
 	        )
@@ -22730,7 +22699,7 @@
 	        align: 'center',
 	        padding: '15px',
 	        minWidth: '450px',
-	        backgroundColor: 'lightblue',
+	        backgroundColor: '#c6ecff',
 	        borderRadius: '10%',
 	        opacity: '1'
 	        // backgroundColor: 'lightblue'
@@ -22980,7 +22949,8 @@
 	      style: {
 	        height: '10%',
 	        width: '95%',
-	        marginBottom: '2%'
+	        marginBottom: '2%',
+	        marginTop: '-1%'
 	      }
 	    };
 
@@ -23005,7 +22975,8 @@
 	            margin: 'auto',
 	            display: 'block',
 	            maxHeight: '100px',
-	            maxWidth: '225px'
+	            maxWidth: '225px',
+	            transform: 'translate(-40%, 0%)'
 	          }, src: _PoggleLogo2.default })
 	      );
 	    }
@@ -23072,7 +23043,7 @@
 	          component.setState({
 	            change: false
 	          });
-	        }, 2000);
+	        }, 1000);
 	      }
 	    }
 	  }, {
@@ -23091,8 +23062,8 @@
 	            position: 'absolute',
 	            top: '0',
 	            width: '100%',
-	            marginTop: '-100px',
-	            marginLeft: '-17.5%',
+	            marginTop: '-75px',
+	            marginLeft: '-8%',
 	            textAlign: 'center'
 	          } },
 	        _react2.default.createElement(

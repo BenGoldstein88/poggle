@@ -89,9 +89,6 @@ export default class Gameboard extends React.Component {
   	var boardSize = this.state.boardSize;
   	var board = new Array();
 
-    console.log("startBoard: ", board);
-    // debugger;
-    console.log("this: ", this);
 
   	for(var i = 0; i < boardSize; i++) {
       var currentRow = board[i] || [];

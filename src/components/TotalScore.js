@@ -10,9 +10,6 @@ export default class TotalScore extends React.Component {
     }
   }
 
-  componentDidMount() {
-    console.log("remounting")
-  }
 
   componentDidUpdate(prevProps, prevState) {
     if(prevProps.totalScore !== this.props.totalScore) {
