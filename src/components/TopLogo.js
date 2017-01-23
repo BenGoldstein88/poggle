@@ -10,7 +10,8 @@ export default class TopLogo extends React.Component {
     	style: {
     		height: '10%',
     		width: '95%',
-        marginBottom: '2%'
+        marginBottom: '2%',
+        marginTop: '-1%'
     	}
     }
 

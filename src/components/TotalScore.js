@@ -25,7 +25,7 @@ export default class TotalScore extends React.Component {
         component.setState({
           change: false,
         })
-      }, 2000)
+      }, 1000)
     }
   }
 
