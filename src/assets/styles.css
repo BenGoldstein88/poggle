@@ -26,6 +26,14 @@ body {
 	padding: 1%;
 }
 
+.game {
+	height: 100%;
+	width: 69%;
+	display: inline-block;
+	margin: 0 auto;
+	position: relative;
+}
+
 
 .shuffle-board-button {
 	font-size: 1em;
@@ -72,8 +80,8 @@ body {
 
 .tile {
 	font-size: 2em;
-	transition: font-size .3s;
-	-webkit-transition: font-size .3s;
+	transition: font-size .3s, font-weight .3s;
+	-webkit-transition: font-size .3s, font-weight: .3s;
 	width: 19%;
 	height: 95%;
 	min-height: 70px;
@@ -93,8 +101,10 @@ body {
 
 .tile:hover {
 	font-size: 2.75em;
-	transition: font-size .3s;
-	-webkit-transition: font-size .3s;
+	transition: font-size .3s, font-weight: .3s;
+	-webkit-transition: font-size .3s, font-weight: .3s;
+	font-weight: bold;
+
 
 }
 
