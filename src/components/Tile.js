@@ -8,7 +8,7 @@ export default class Tile extends React.Component {
     this.state = {
     	clicked: false,
       style: {
-        backgroundColor: '#f2f4f7',
+        backgroundColor: 'white',
         color: 'black'
       },
       clickedStyle: {

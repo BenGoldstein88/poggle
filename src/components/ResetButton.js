@@ -35,12 +35,12 @@ export default class ResetButton extends React.Component {
           left: '50%',
           marginRight: '50%',
           transform: 'translate(-50%, -50%)',
-          WebkitTouchCallout: 'none',
-          WebkitUserSelect: 'none',
-          khtmlUserSelect: 'none',
-          MozUserSelect: 'none',
-          msUserSelect: 'none',
-          userSelect: 'none'  
+          // WebkitTouchCallout: 'none',
+          // WebkitUserSelect: 'none',
+          // khtmlUserSelect: 'none',
+          // MozUserSelect: 'none',
+          // msUserSelect: 'none',
+          // userSelect: 'none'  
         }} >
         	RESET GAME
         </div>

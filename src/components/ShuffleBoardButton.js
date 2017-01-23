@@ -35,13 +35,13 @@ export default class ShuffleBoardButton extends React.Component {
           top: '50%',
           left: '50%',
           marginRight: '50%',
-          transform: 'translate(-50%, -50%)',
-          WebkitTouchCallout: 'none',
-          WebkitUserSelect: 'none',
-          khtmlUserSelect: 'none',
-          MozUserSelect: 'none',
-          msUserSelect: 'none',
-          userSelect: 'none'  
+          transform: 'translate(-50%, -50%)'
+          // WebkitTouchCallout: 'none',
+          // WebkitUserSelect: 'none',
+          // khtmlUserSelect: 'none',
+          // MozUserSelect: 'none',
+          // msUserSelect: 'none',
+          // userSelect: 'none'  
         }} >
         	SHUFFLE BOARD
         </div>

@@ -26,22 +26,6 @@ body {
 	padding: 1%;
 }
 
-.tile {
-	font-size: 2em;
-	transition: font-size .2s;
-	width: 19%;
-	height: 95%;
-	min-height: 70px;
-	min-width: 70px;
-	max-height: 300px;
-	max-width: 200px;
-	border-radius: 5px;
-	display: inline-block;
-	position: relative;
-	text-align: center;
-	margin: .5%
-
-}
 
 .shuffle-board-button {
 	font-size: 1em;
@@ -86,12 +70,31 @@ body {
 	-webkit-transition: font-size .3s;
 }
 
+.tile {
+	font-size: 2em;
+	transition: font-size .3s;
+	-webkit-transition: font-size .3s;
+	width: 19%;
+	height: 95%;
+	min-height: 70px;
+	min-width: 70px;
+	max-height: 300px;
+	max-width: 200px;
+	border-radius: 5px;
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	margin: .5%
+
+}
 .tile-clicked {
 
 }
 
 .tile:hover {
-	font-size: 2.5em;
+	font-size: 2.75em;
+	transition: font-size .3s;
+	-webkit-transition: font-size .3s;
 
 }
 

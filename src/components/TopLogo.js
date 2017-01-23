@@ -30,7 +30,8 @@ export default class TopLogo extends React.Component {
           margin: 'auto',
           display: 'block',
           maxHeight: '100px',
-          maxWidth: '225px'
+          maxWidth: '225px',
+          transform: 'translate(-40%, 0%)'
         }} src={TopLogoImage} />
 
       </div>

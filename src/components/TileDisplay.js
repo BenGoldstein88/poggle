@@ -17,7 +17,7 @@ export default class TileDisplay extends React.Component {
         align: 'center',
         padding: '15px',
         minWidth: '450px',
-        backgroundColor: 'lightblue',
+        backgroundColor: '#c6ecff',
         borderRadius: '10%',
         opacity: '1'
         // backgroundColor: 'lightblue'
