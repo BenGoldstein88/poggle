@@ -21,10 +21,11 @@ export default class ResetButton extends React.Component {
         height: '50px',
         backgroundColor: 'red',
         color: 'white',
-        width: '90%',
+        width: '40%',
         borderRadius: '5px',
         textAlign: 'center',
-        margin: '0 auto'
+        margin: '0 auto',
+        display: 'inline-block'
       }} className={'pt-interactive pt-card'}>
         <div style={{
         	margin: '0',

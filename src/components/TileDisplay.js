@@ -138,7 +138,7 @@ export default class TileDisplay extends React.Component {
 
     return (
       <div style={this.state.style}>
-        <ShuffleBoardButton resetCurrentWord={this.props.resetCurrentWord} onClick={this.shuffleTiles} />
+
         <div style={{margin: '0 auto'}}>
           {tileRows}
         </div>

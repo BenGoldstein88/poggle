@@ -18,7 +18,7 @@ export default class Gameboard extends React.Component {
         position: 'relative',
         margin: '0 auto'
       },
-      resetGame: false,
+      resetGameBool: false,
       colorMap: {
         0: '#ffe6e6',
         1: '#ffcccc', 
@@ -168,14 +168,14 @@ export default class Gameboard extends React.Component {
     this.setState({
       board: [],
       submittedWords: [],
-      resetGame: true,
+      resetGameBool: true,
       board: board
     })
   }
 
   toggleResetGame() {
     this.setState({
-      resetGame: !this.state.resetGame
+      resetGameBool: !this.state.resetGame
     })
   }
 
@@ -190,7 +190,7 @@ export default class Gameboard extends React.Component {
   render() {
     return (
       <div style={this.state.style}>
-      	<Game shuffleBoard={this.randomizeCurrentBoard} colorMap={this.state.colorMap} fontColorMap={this.state.fontColorMap} resetGame={this.state.resetGame} toggleResetGame={this.toggleResetGame} submittedWords={this.state.submittedWords} addWordToSubmittedWords={this.addWordToSubmittedWords} board={this.state.board} />
+      	<Game resetGame={this.handleResetGame} shuffleBoard={this.randomizeCurrentBoard} colorMap={this.state.colorMap} fontColorMap={this.state.fontColorMap} resetGameBool={this.state.resetGame} toggleResetGame={this.toggleResetGame} submittedWords={this.state.submittedWords} addWordToSubmittedWords={this.addWordToSubmittedWords} board={this.state.board} />
       	<Scoreboard colorMap={this.state.colorMap} fontColorMap={this.state.fontColorMap} color={this.props.color} resetGame={this.handleResetGame} submittedWords={this.state.submittedWords} />
       </div>
     );

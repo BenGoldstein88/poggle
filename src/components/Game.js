@@ -1,6 +1,7 @@
 import React from 'react';
 import TileDisplay from './TileDisplay';
 import WordDisplay from './WordDisplay';
+import ButtonDisplay from './ButtonDisplay';
 import { Button, Position, Toaster, Intent } from "@blueprintjs/core";
 
 
@@ -38,7 +39,7 @@ export default class Game extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if(!!this.props.resetGame) {
+    if(!!this.props.resetGameBool) {
       this.resetBoard();
       this.props.toggleResetGame();
     }
@@ -232,6 +233,7 @@ export default class Game extends React.Component {
   render() {
     return (
       <div style={this.state.style} >
+        <ButtonDisplay resetCurrentWord={this.resetCurrentWord} shuffleBoard={this.props.shuffleBoard} resetGame={this.props.resetGame}/>
       	<TileDisplay shuffleBoard={this.props.shuffleBoard} resetCurrentWord={this.resetCurrentWord} colorMap={this.props.colorMap} fontColorMap={this.props.fontColorMap} toggleReset={this.toggleReset} reset={this.state.reset} isLegalUndo={this.isLegalUndo} isLegalMove={this.isLegalMove} currentWord={this.state.currentWord} visitedTiles={this.state.visitedTiles} board={this.props.board} />
       	<WordDisplay numVisitedTiles={this.state.visitedTiles.length} colorMap={this.props.colorMap} fontColorMap={this.props.fontColorMap} submitWord={this.handleSubmitWord} currentWord={this.state.currentWord} />
       </div>

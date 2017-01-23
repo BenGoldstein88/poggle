@@ -24,7 +24,8 @@ export default class ShuffleBoardButton extends React.Component {
         width: '40%',
         borderRadius: '5px',
         textAlign: 'center',
-        margin: '0 auto'
+        margin: '0 auto',
+        display: 'inline-block'
       }} className={'pt-interactive pt-card'}>
         <div style={{
         	margin: '0',

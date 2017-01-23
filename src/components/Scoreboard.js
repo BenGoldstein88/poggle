@@ -50,7 +50,6 @@ export default class Scoreboard extends React.Component {
     return (
       <div style={this.state.style}>
         <TotalScore color={color} totalScore={totalScore} />
-        <ResetButton resetGame={this.props.resetGame}/>
         <table style={{
           width: '100%',
           textAlign: 'center'
