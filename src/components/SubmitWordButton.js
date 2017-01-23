@@ -34,12 +34,11 @@ export default class SubmitWordButton extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if(prevProps !== this.props) {
-      var style = this.state.style;
+      var style = {};
       var backgroundColor = this.props.colorMap[Math.min(this.props.numVisitedTiles, 14)];
       var fontColor = this.props.fontColorMap[Math.min(this.props.numVisitedTiles, 14)];
       style.backgroundColor = backgroundColor;
       style.color = fontColor;
-      var clone = style;
       this.setState({
         style: style
       })
