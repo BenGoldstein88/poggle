@@ -22,9 +22,13 @@ app.get('/', function(request, response) {
   response.sendFile(__dirname + '/dist/index.html')
 });
 
-app.get('/samplemidi', function(request, response) {
-  response.sendFile(__dirname + '/dist/e2a3d34792d711c95dfd5cebc615c109.mid')
-})
+// app.get('/samplemidi', function(request, response) {
+//   response.sendFile(__dirname + '/dist/e2a3d34792d711c95dfd5cebc615c109.mid')
+// })
+
+// app.get('/test', function(request, response) {
+//   response.sendFile(__dirname + '/')
+// })
 
 app.listen(PORT, function(error) {
   if (error) {

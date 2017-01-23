@@ -2,8 +2,8 @@ import React from 'react';
 import TileDisplay from './TileDisplay';
 import WordDisplay from './WordDisplay';
 import ButtonDisplay from './ButtonDisplay';
-import LineReader from 'line-by-line';
-import WordFile from '../assets/words.txt' 
+import Typo from 'typo-js';
+
 import { Button, Position, Toaster, Intent } from "@blueprintjs/core";
 
 
@@ -12,11 +12,11 @@ export default class Game extends React.Component {
 
   constructor(props) {
     super(props);
-    const toaster = Toaster.create()
-    // const lineReader = new LineReader(WordFile);
+    const toaster = Toaster.create();
+    const dictionary = new Typo("en_US", false, false, {dictionaryPath: '../assets/typo-js/dictionaries'});
 
     this.state = {
-      // lineReader: lineReader,
+      dictionary: dictionary,
       toaster: toaster,
       currentWord: '',
       visitedTiles: [],
@@ -38,20 +38,11 @@ export default class Game extends React.Component {
   }
 
   componentDidMount() {
-    // var counter = 0;
-    // var lineReader = this.state.lineReader;
-    // console.log("WordFile: ", WordFile);
-    // console.log("lineReader: ", lineReader);
+    // var isWord = this.state.dictionary.check("hilarious");
+    // var isNotWord = this.state.dictionary.check("bftd");
 
-    // lineReader.on('line', function (line) {
-    //   if(counter < 10) {
-    //     console.log("line: ", line, "Number: ", counter);
-    //     counter++
-    //   } else {
-    //     return null;
-    //   }
-
-    // })
+    // console.log("isWord: ", isWord);
+    // console.log("isNotWord: ", isNotWord);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -183,6 +174,17 @@ export default class Game extends React.Component {
         timeout: 1500
       })
       return false;
+    }
+
+    if(!this.state.dictionary.check(currentWord)) {
+      var message = "Sorry! " + currentWord.toUpperCase() + " is not a word!";
+      this.state.toaster.show({
+        message: message,
+        intent: Intent.DANGER,
+        canEscapeKeyClear: true,
+        timeout: 1500
+      })
+      return false;      
     }
 
     // submittedWords.push(currentWord);
