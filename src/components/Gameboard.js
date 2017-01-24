@@ -96,16 +96,12 @@ export default class Gameboard extends React.Component {
 		  	var indexOfCurrentDie = this.pickRandomIndex(letterArray.length);
 		  	var currentDie = letterArray[indexOfCurrentDie];
 		  	var currentDieLetters = currentDie.split('');
-        // console.log("currentDieLetters: ", currentDieLetters);
 		  	var currentLetter = currentDieLetters[this.pickRandomIndex(currentDieLetters.length)];
-		  	// currentRow[j] = currentLetter;
         currentRow.push(currentLetter);
-        // console.log("board: ", board);
 		  	letterArray.splice(indexOfCurrentDie, 1);
   		}
       board.push(currentRow);
   	}
-  	console.log("finalBoard: ", board);
   	return board;  	
   }
 
@@ -172,7 +168,7 @@ export default class Gameboard extends React.Component {
 
   toggleResetGame() {
     this.setState({
-      resetGameBool: !this.state.resetGame
+      resetGameBool: !this.state.resetGameBool
     })
   }
 
@@ -187,7 +183,7 @@ export default class Gameboard extends React.Component {
   render() {
     return (
       <div style={this.state.style}>
-      	<Game resetGame={this.handleResetGame} shuffleBoard={this.randomizeCurrentBoard} colorMap={this.state.colorMap} fontColorMap={this.state.fontColorMap} resetGameBool={this.state.resetGame} toggleResetGame={this.toggleResetGame} submittedWords={this.state.submittedWords} addWordToSubmittedWords={this.addWordToSubmittedWords} board={this.state.board} />
+      	<Game resetGame={this.handleResetGame} shuffleBoard={this.randomizeCurrentBoard} colorMap={this.state.colorMap} fontColorMap={this.state.fontColorMap} resetGameBool={this.state.resetGameBool} toggleResetGame={this.toggleResetGame} submittedWords={this.state.submittedWords} addWordToSubmittedWords={this.addWordToSubmittedWords} board={this.state.board} />
       	<Scoreboard colorMap={this.state.colorMap} fontColorMap={this.state.fontColorMap} color={this.props.color} resetGame={this.handleResetGame} submittedWords={this.state.submittedWords} />
       </div>
     );

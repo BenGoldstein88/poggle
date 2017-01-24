@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "e50de03a4b73969eccdb"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "c610b2292339ea054a1c"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -22050,16 +22050,12 @@
 	          var indexOfCurrentDie = this.pickRandomIndex(letterArray.length);
 	          var currentDie = letterArray[indexOfCurrentDie];
 	          var currentDieLetters = currentDie.split('');
-	          // console.log("currentDieLetters: ", currentDieLetters);
 	          var currentLetter = currentDieLetters[this.pickRandomIndex(currentDieLetters.length)];
-	          // currentRow[j] = currentLetter;
 	          currentRow.push(currentLetter);
-	          // console.log("board: ", board);
 	          letterArray.splice(indexOfCurrentDie, 1);
 	        }
 	        board.push(currentRow);
 	      }
-	      console.log("finalBoard: ", board);
 	      return board;
 	    }
 	  }, {
