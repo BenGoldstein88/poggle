@@ -68,8 +68,8 @@ body {
 	text-align: center;
 	font-size: 1.5em;
 	margin-top: -80px;
-	transition: font-size .3s;
-	-webkit-transition: font-size .3s;
+	transition: font-size .3s, color .7s, background-color .7s;
+	-webkit-transition: font-size .3s, color .7s, background-color .7s;
 }
 
 .submit-word-button:hover {
@@ -80,8 +80,8 @@ body {
 
 .tile {
 	font-size: 2em;
-	transition: font-size .3s, font-weight .3s;
-	-webkit-transition: font-size .3s, font-weight: .3s;
+	transition: font-size .3s, font-weight .3s, color .7s, background-color .7s;
+	-webkit-transition: font-size .3s, font-weight: .3s, color .7s, background-color .7s;
 	width: 19%;
 	height: 95%;
 	min-height: 70px;

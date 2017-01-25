@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "c610b2292339ea054a1c"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "734e94183c503e681c5d"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -22123,7 +22123,7 @@
 	    key: 'toggleResetGame',
 	    value: function toggleResetGame() {
 	      this.setState({
-	        resetGameBool: !this.state.resetGame
+	        resetGameBool: !this.state.resetGameBool
 	      });
 	    }
 	  }, {
@@ -22139,7 +22139,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { style: this.state.style },
-	        _react2.default.createElement(_Game2.default, { resetGame: this.handleResetGame, shuffleBoard: this.randomizeCurrentBoard, colorMap: this.state.colorMap, fontColorMap: this.state.fontColorMap, resetGameBool: this.state.resetGame, toggleResetGame: this.toggleResetGame, submittedWords: this.state.submittedWords, addWordToSubmittedWords: this.addWordToSubmittedWords, board: this.state.board }),
+	        _react2.default.createElement(_Game2.default, { resetGame: this.handleResetGame, shuffleBoard: this.randomizeCurrentBoard, colorMap: this.state.colorMap, fontColorMap: this.state.fontColorMap, resetGameBool: this.state.resetGameBool, toggleResetGame: this.toggleResetGame, submittedWords: this.state.submittedWords, addWordToSubmittedWords: this.addWordToSubmittedWords, board: this.state.board }),
 	        _react2.default.createElement(_Scoreboard2.default, { colorMap: this.state.colorMap, fontColorMap: this.state.fontColorMap, color: this.props.color, resetGame: this.handleResetGame, submittedWords: this.state.submittedWords })
 	      );
 	    }
